@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejador financeiro</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="mensagemErro" class="erro escondido"> </div>
+
+    <header>
+        <h1>Sistemas de finanças</h1>
+    </header>
+
+    <main>
+        <form id="formPrincipal" class="card" >
+            <p>Insira a sua receita ou despesa:</p>
+            <input id="entradaValor" type="number" placeholder="inserir" tabindex="1">
+            <br>
+            <p>Insira qual tipo:</p>
+            <select id="tipoEntrada" tabindex="2">
+                <option value="" disabled selected>Escolher:</option>
+                <option value="receita">Receita</option>
+                <option value="despesa">Despesa</option>
+            </select>
+            <br>
+
+            <p>Insira a data:</p>
+            <input id="dataEntrada" type="date" placeholder="escolher data" tabindex="3">
+            <br>
+
+            <p>Escolha a categoria:</p>
+            <div id="grupoSelectBotao">
+                <input id="inputCategoriaEntrada" list="categoriaEntrada" type="text" placeholder="escolher categoria"
+                    tabindex="4">
+                <datalist id="categoriaEntrada">
+                    <option value="Trabalho"></option>
+                    <option value="Freelance"></option>
+                    <option value="Mercado"></option>
+                    <option value="Internet"></option>
+                </datalist>
+
+                <button id="botaoDeEnvio" type="submit">enviar</button>
+            </div>
+        </form>
+
+        <section id="sectionPrincipal" class="card">
+            <h3 id="tituloResumo">Resumo geral de finanças:</h3>
+
+            <p>Receita total:</p>
+            <p id="receita">R$ 0,00</p>
+
+            <p>Despesas totais</p>
+            <p id="despesa">R$ 0,00</p>
+
+            <p>Saldo total:</p>
+            <p id="saldo">R$ 0,00</p>
+        </section>
+
+        <div id="divFiltro">
+            <p>Filtrar por:</p>
+
+            <select id="filtroTipo">
+                <option value="filtroTodasOfTipo">Todas</option>
+                <option value="receita">Receita</option>
+                <option value="despesa">Despesa</option>
+            </select>
+            <select id="filtroCategoria">
+                <option value="todas">Todas</option>
+            </select>
+
+        </div>
+
+
+        <div id="wrapperTabela">
+            <table class="tabelaFinanceira">
+                <thead id="cabecalho">
+                    <tr>
+                        <th>Valor</th>
+                        <th>Tipo</th>
+                        <th>Categoria</th>
+                        <th>Data</th>
+                        <th class="botaoAcao">Excluir</th>
+                        <th class="botaoAcao">Editar</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabela"></tbody>
+                <tfoot>
+                    <tr>
+                        <td id="totalTabela">Total:</td>
+                        <td colspan="5" id="footTabela">R$ 0,00</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
